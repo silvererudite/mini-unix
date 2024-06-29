@@ -5,5 +5,7 @@ public class Main {
 
         FileUtil util = new FileUtil("ghh", "test.txt");
         System.out.println(util.calculateFileBytes());
+
+        System.out.println(util.getFileLines());
     }
 }

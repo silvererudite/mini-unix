@@ -1,8 +1,6 @@
 package model;
-
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.nio.charset.Charset;
 import java.util.Scanner;
 
 public class FileUtil {
@@ -15,25 +13,33 @@ public class FileUtil {
     }
 
     public int calculateFileBytes(){
-        String fileContents = getFileContents(this.filePath);
-        return fileContents.getBytes().length;
+        File fileContents = new File(this.filePath);;
+        return (int) fileContents.length();
     }
 
-    private String getFileContents(String filePath){
+    public  int getFileLines(){
+        return countFileLines(this.filePath);
+    }
+
+
+    private int countFileLines(String filePath){
         StringBuilder fileContents= new StringBuilder();
+        int lineCount = 0;
         try {
             File myObj = new File(filePath);
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
                 String data = myReader.nextLine();
-                fileContents.append(data);
+                //fileContents.append(data);
+                lineCount++;
             }
             myReader.close();
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
         };
-        return fileContents.toString();
+        //return fileContents.toString();
+        return lineCount;
 
     }
 
