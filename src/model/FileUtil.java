@@ -4,11 +4,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class FileUtil {
-    private String parameter;
+
     private String filePath;
 
-    public FileUtil(String parameter, String filePath){
-        this.parameter = parameter;
+    public FileUtil(String filePath){
         this.filePath = filePath;
     }
 
@@ -17,12 +16,7 @@ public class FileUtil {
         return (int) fileContents.length();
     }
 
-    public  int getFileLines(){
-        return countFileLines(this.filePath);
-    }
-
-
-    private int countFileLines(String filePath){
+    public int countFileLines(String filePath){
         StringBuilder fileContents= new StringBuilder();
         int lineCount = 0;
         try {
