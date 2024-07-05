@@ -8,6 +8,9 @@ public class FileView {
     public void displayLineCount(int lineCount, String filePath) {
         System.out.println(" " + lineCount + " " + filePath);
     }
+    public void displayWordCount(int wordCount, String filePath) {
+        System.out.println(" " + wordCount + " " + filePath);
+    }
 
     public void displayUsage() {
         System.out.println("Usage: java controller.FileController -c <filename>");

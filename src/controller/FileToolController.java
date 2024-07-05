@@ -17,12 +17,20 @@ public class FileToolController {
             fileView.displayUsage();
             return;
         }
-        if(args[0].equals("-c")) {
-            int byteCount = fileUtil.calculateFileBytes();
-            fileView.displayByteCount(byteCount, args[1]);
-        } else if (args[0].equals("-lc")) {
-            int lineCount = fileUtil.countFileLines(args[1]);
-            fileView.displayLineCount(lineCount, args[1]);
+        switch (args[0]) {
+            case "-c" -> {
+                int byteCount = fileUtil.calculateFileBytes();
+                fileView.displayByteCount(byteCount, args[1]);
+            }
+            case "-lc" -> {
+                int lineCount = fileUtil.countFileLines(args[1]);
+                fileView.displayLineCount(lineCount, args[1]);
+            }
+            case "-w" ->{
+                int wordCount = fileUtil.countFileWords(args[1]);
+                fileView.displayWordCount(wordCount, args[1]);
+            }
+            default -> System.out.println("Ooops");
         }
     }
 

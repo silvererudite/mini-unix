@@ -36,5 +36,23 @@ public class FileUtil {
         return lineCount;
 
     }
+    public int countFileWords(String filePath){
+        int wordCount = 0;
+        try {
+            File myObj = new File(filePath);
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNext()) {
+                myReader.next();
+                wordCount++;
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        };
+        //return fileContents.toString();
+        return wordCount;
+
+    }
 
 }
